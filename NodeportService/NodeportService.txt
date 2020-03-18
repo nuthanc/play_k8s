@@ -18,6 +18,8 @@ kubectl get svc -n ns1
 NAME                TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
 nodeport-service1   NodePort   10.101.212.42   <none>        80:30991/TCP   4m4s
 
+30991 is the nodePort, it can also be given in service. The range is 30000-32767
+
 wget 10.204.217.6:30991
 --2020-03-18 16:28:21--  http://10.204.217.6:30991/
 Connecting to 10.204.217.6:30991... connected.
@@ -30,3 +32,15 @@ Saving to: ‘index.html’
 kubectl exec -it cirros-85fc7dd848-cqm29 -n hello --  wget 10.204.217.6:30991
 Connecting to 10.204.217.6:30991 (10.204.217.6:30991)
 index.html           100% |********************************|   612  0:00:00 ETA
+
+After adding nodePort and creating another service
+wget 10.204.217.6:30000
+--2020-03-18 16:42:05--  http://10.204.217.6:30000/
+Connecting to 10.204.217.6:30000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 612 [text/html]
+Saving to: ‘index.html.3’
+
+100%[=====================================================================================>] 612         --.-K/s   in 0s      
+
+2020-03-18 16:42:05 (69.4 MB/s) - ‘index.html.3’ saved [612/612]

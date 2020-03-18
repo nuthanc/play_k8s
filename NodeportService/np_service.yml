@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodeport-service1
+  name: nodeport-service2
   namespace: ns1
 spec:
   selector:
     app: nginx-deployment
   ports:
     - port: 80
+      nodePort: 30000
       targetPort: 80
   type: NodePort
