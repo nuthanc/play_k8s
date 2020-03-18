@@ -1,0 +1,32 @@
+Create a Nodeport service in a namespace for nginx pod and accessing it from local or other pods
+
+
+kubectl create -f ns1.yml
+kubectl create -f nginx_dep.yml
+kubectl create -f np_service.yml
+
+kubectl create ns hello
+kubectl run cirros --image=cirros -n hello
+
+kubectl get nodes -o wide
+NAME      STATUS     ROLES    AGE     VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE                KERNEL-VERSION                CONTAINER-RUNTIME
+nodec19   NotReady   master   4h20m   v1.12.9   10.204.217.4     <none>        CentOS Linux 7 (Core)   3.10.0-1062.12.1.el7.x86_64   docker://18.3.1
+nodec21   Ready      <none>   4h20m   v1.12.9   10.204.217.6     <none>        CentOS Linux 7 (Core)   3.10.0-1062.12.1.el7.x86_64   docker://18.3.1
+nodei18   Ready      <none>   4h20m   v1.12.9   10.204.217.130   <none>        CentOS Linux 7 (Core)   3.10.0-1062.12.1.el7.x86_64   docker://18.3.1
+
+kubectl get svc -n ns1
+NAME                TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+nodeport-service1   NodePort   10.101.212.42   <none>        80:30991/TCP   4m4s
+
+wget 10.204.217.6:30991
+--2020-03-18 16:28:21--  http://10.204.217.6:30991/
+Connecting to 10.204.217.6:30991... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 612 [text/html]
+Saving to: ‘index.html’
+100%[=====================================================================================>] 612         --.-K/s   in 0s      
+2020-03-18 16:28:21 (62.9 MB/s) - ‘index.html’ saved [612/612]
+
+kubectl exec -it cirros-85fc7dd848-cqm29 -n hello --  wget 10.204.217.6:30991
+Connecting to 10.204.217.6:30991 (10.204.217.6:30991)
+index.html           100% |********************************|   612  0:00:00 ETA
