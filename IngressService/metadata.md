@@ -253,4 +253,11 @@ status:
   podIP: 10.47.255.239
   qosClass: BestEffort
   startTime: 2020-03-24T08:01:16Z
-  ```
+```
+
+```
+'http://10.47.255.240:80/'
+(ret_val, output) = self.do_wget(link, pod=test_pod, host=host,output_file='-',return_output=True,cert=cert)
+
+where test_pod is busy_box and link is internal ip of ingress
+```
