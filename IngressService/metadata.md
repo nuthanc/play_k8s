@@ -262,3 +262,10 @@ status:
 where test_pod is busy_box and link is internal ip of ingress
 Also wget 10.204.219.204 can be done from local laptop
 ```
+```txt
+kubectl get nodes -o wide
+NAME               STATUS   ROLES    AGE    VERSION    INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION    CONTAINER-RUNTIME
+ip-172-31-22-152   Ready    <none>   5d9h   v1.14.10   172.31.22.152   <none>        Ubuntu 18.04.4 LTS   4.15.0-1057-aws   docker://19.3.8
+
+ubuntu@ip-172-31-22-152:~$ curl http://172.31.22.152:8082/loadbalancers
+```
