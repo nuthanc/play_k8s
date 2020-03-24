@@ -160,3 +160,97 @@ status:
     - ip: 10.204.219.204
     - ip: 10.47.255.240
 ```
+
+```yml
+# Busybox pod
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/network-status: |-
+      [
+          {
+              "ips": "10.47.255.239",
+              "mac": "02:a3:5c:8e:36:6d",
+              "name": "cluster-wide-default"
+          }
+      ]
+  creationTimestamp: 2020-03-24T08:01:16Z
+  name: ctest-busybox-pod-66939990
+  namespace: default
+  resourceVersion: "125450"
+  selfLink: /api/v1/namespaces/default/pods/ctest-busybox-pod-66939990
+  uid: a32b30b5-6da5-11ea-8c9c-525400010001
+spec:
+  containers:
+  - command:
+    - sleep
+    - "1000000"
+    image: busybox
+    imagePullPolicy: IfNotPresent
+    name: ctest-busybox-pod-66939990-0
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-75kww
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  nodeName: testbed-1-vm2
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-75kww
+    secret:
+      defaultMode: 420
+      secretName: default-token-75kww
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: 2020-03-24T08:01:16Z
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: 2020-03-24T08:01:23Z
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: 2020-03-24T08:01:23Z
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: 2020-03-24T08:01:16Z
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://210078c0234a74e7f5a9b96caaddf875dcf964d3ae716bfc453325e03234666c
+    image: busybox:latest
+    imageID: docker-pullable://busybox@sha256:b26cd013274a657b86e706210ddd5cc1f82f50155791199d29b9e86e935ce135
+    lastState: {}
+    name: ctest-busybox-pod-66939990-0
+    ready: true
+    restartCount: 0
+    state:
+      running:
+        startedAt: 2020-03-24T08:01:23Z
+  hostIP: 10.204.218.104
+  phase: Running
+  podIP: 10.47.255.239
+  qosClass: BestEffort
+  startTime: 2020-03-24T08:01:16Z
+  ```

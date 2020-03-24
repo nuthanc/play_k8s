@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - image: nginx
-    name: nginx-pod-1
+    name: nginx-container-1
     ports:
     - containerPort: 80
       protocol: TCP
