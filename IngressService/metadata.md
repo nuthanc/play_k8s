@@ -260,4 +260,5 @@ status:
 (ret_val, output) = self.do_wget(link, pod=test_pod, host=host,output_file='-',return_output=True,cert=cert)
 
 where test_pod is busy_box and link is internal ip of ingress
+Also wget 10.204.219.204 can be done from local laptop
 ```
