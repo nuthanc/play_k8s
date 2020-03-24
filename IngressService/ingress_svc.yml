@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-svc
+  namespace: default
+spec:
+  backend:
+    serviceName: nginx-svc
+    servicePort: 80
+status:
+  loadBalancer:
+    ingress:
+    - ip: 10.204.219.204
+    - ip: 10.47.255.240
