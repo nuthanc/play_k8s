@@ -263,11 +263,16 @@ where test_pod is busy_box and link is internal ip of ingress
 Also wget 10.204.219.204 can be done from local laptop
 ```
 ```txt
-Get details about loadbalancer from API server
+Get details about loadbalancer from API server(port 8082)
 
 kubectl get nodes -o wide
 NAME               STATUS   ROLES    AGE    VERSION    INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION    CONTAINER-RUNTIME
 ip-172-31-22-152   Ready    <none>   5d9h   v1.14.10   172.31.22.152   <none>        Ubuntu 18.04.4 LTS   4.15.0-1057-aws   docker://19.3.8
 
 ubuntu@ip-172-31-22-152:~$ curl http://172.31.22.152:8082/loadbalancers
+
+curl http://172.31.22.152:8082/loadbalancers | python -m json.tool | grep -C 5 nginx-svc
+where json.tool is used for good spacing and formatting of json
+
+curl http://172.31.22.152:8082/ | python -m json.tool | grep virtual
 ```
