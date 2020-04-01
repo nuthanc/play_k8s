@@ -1,12 +1,12 @@
 Configuring Network Policy on default cirros pod to allow traffic only from cirros pod of Nuthan
 
 
+kubectl create -f nut_ns.yml
+kubectl create -f kir_ns.yml
+
 kubectl run cirros --image=cirros -l app=kirthan -n kirthan
 kubectl run cirros --image=cirros -l app=nuthan -n nuthan
 kubectl run cirros --image=cirros -l app=default
-
-kubectl create -f nut_ns.yml
-kubectl create -f kir_ns.yml
 
 IP of cirros pod in default ns: 10.47.255.250
 
