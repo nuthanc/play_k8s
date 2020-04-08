@@ -6,14 +6,11 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: default
+      app: pol-test
   policyTypes:
   - Ingress
   ingress:
   - from:
-    - namespaceSelector:
-        matchLabels:
-          site: nuthan
     - podSelector:
         matchLabels:
-          app: nuthan
+          app: cir-allow

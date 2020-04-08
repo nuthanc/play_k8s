@@ -1,0 +1,3 @@
+Configuring Network Policy on default nginx pod to allow traffic only from cirros pod of label app cir-allow
+
+
