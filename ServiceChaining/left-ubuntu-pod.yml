@@ -10,7 +10,7 @@ metadata:
 spec:
   containers:
     - name: ubuntu-left-pod-sc
-      image: ubuntu
+      image: contrailk8sdayone/ubuntu
       securityContext:
           privileged: true
           capabilities:
