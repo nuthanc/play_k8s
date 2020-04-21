@@ -1,0 +1,12 @@
+# Create 2 Virtual networks
+
+kubectl create -f left-net.yml
+kubectl create -f right-net.yml
+
+# Verify using kubectl
+
+kubectl get network-attachment-definition
+kubectl describe network-attachment-definition
+
+kubectl create -f left-ubuntu-pod.yml
+kubectl create -f right-ubuntu-pod.yml
