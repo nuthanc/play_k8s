@@ -11,6 +11,7 @@ spec:
   containers:
     - name: ubuntu-right-pod-sc
       image: ubuntu
+      command: ["/sbin/init"]
       securityContext:
           privileged: true
           capabilities:
