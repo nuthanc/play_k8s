@@ -8,4 +8,4 @@ metadata:
   name: vn-left-d1
   namespace: default
 spec:
- config: '{ "cniVersion": "0.3.0", "type": "contrail-k8s-cni" }'
+  config: '{ "cniVersion": "0.3.0", "type": "contrail-k8s-cni" }'

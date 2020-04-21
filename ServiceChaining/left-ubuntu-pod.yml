@@ -5,8 +5,7 @@ metadata:
   labels:
     app: webapp-sc
   annotations:
-    k8s.v1.cni.cncf.io/networks: '[
-        { "name": "left-network" }]'
+    k8s.v1.cni.cncf.io/networks: '[{ "name": "left-network" }]'
 spec:
   containers:
     - name: ubuntu-left-pod-sc
@@ -14,5 +13,5 @@ spec:
       securityContext:
           privileged: true
           capabilities:
-           add:
-             - NET_ADMIN
+            add:
+              - NET_ADMIN
