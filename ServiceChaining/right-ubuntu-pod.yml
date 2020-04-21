@@ -9,8 +9,7 @@ metadata:
 spec:
   containers:
     - name: ubuntu-right-pod-sc
-      image: ubuntu
-      command: ["/sbin/init"]
+      image: contrailk8sdayone/ubuntu
       securityContext:
           privileged: true
           capabilities:

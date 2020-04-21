@@ -10,3 +10,8 @@ kubectl describe network-attachment-definition
 
 kubectl create -f left-ubuntu-pod.yml
 kubectl create -f right-ubuntu-pod.yml
+
+##### All in one #####
+
+kubectl create -f left.yml
+kubectl create -f right.yml

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: webapp-sc
   annotations:
-    k8s.v1.cni.cncf.io/networks: '[{ "name": "left-network" }]'
+    k8s.v1.cni.cncf.io/networks: '[{ "name": "vn-left" }]'
 spec:
   containers:
     - name: ubuntu-left-pod-sc

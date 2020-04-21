@@ -2,10 +2,10 @@ apiVersion: k8s.cni.cncf.io/v1
 kind: NetworkAttachmentDefinition 
 metadata:
   annotations:
-    opencontrail.org/cidr: "2.0.0.0/24" 
+    opencontrail.org/cidr: "1.0.0.0/24" 
     opencontrail.org/ip_fabric_forwarding: "false" 
     opencontrail.org/ip_fabric_snat: "false"
-  name: vn-right
+  name: vn-left
   namespace: default 
 spec:
   config: '{ "cniVersion": "0.3.0", "type": "contrail-k8s-cni" }'
@@ -15,14 +15,14 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: right-ubuntu-pod
+  name: left-ubuntu-pod
   labels:
     app: webapp-sc
   annotations:
-    k8s.v1.cni.cncf.io/networks: '[{ "name": "vn-right" }]'
+    k8s.v1.cni.cncf.io/networks: '[{ "name": "vn-left" }]'
 spec:
   containers:
-    - name: ubuntu-right-pod-sc
+    - name: ubuntu-left-pod-sc
       image: contrailk8sdayone/ubuntu
       securityContext:
           privileged: true
