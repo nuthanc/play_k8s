@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: csrx-pod
+  labels:
+    app: webapp-sc
+  annotations:
+    k8s.v1.cni.cncf.io/networks: '[
+      { "name": "vn-left" },
+      { "name": "vn-right" }
+    ]'
+spec:
+  containers:
+  - name: csrx-container
+    image: contrailk8sdayone/csrx
+    ports:
+    - containerPort: 22
+    imagePullPolicy: Never
+    stdin: true
+    tty: true
+    securityContext:
+      privileged: true
