@@ -15,4 +15,5 @@ kubectl create -f right-ubuntu-pod.yml
 
 kubectl create -f left.yml
 kubectl create -f right.yml
+
 kubectl create -f csrx-pod.yml
