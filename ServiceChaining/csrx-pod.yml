@@ -15,7 +15,6 @@ spec:
     image: contrailk8sdayone/csrx
     ports:
     - containerPort: 22
-    imagePullPolicy: Never
     stdin: true
     tty: true
     securityContext:
