@@ -106,4 +106,55 @@ There’s no session on the cSRX. To troubleshoot the ping issue, log in to the 
 To get the interface linking the containers
 ```sh
 vif -l
+<snipped>
+#Left
+vif0/5      OS: tapeth0-bc1c69 NH: 52
+            Type:Virtual HWaddr:00:00:5e:00:01:00 IPaddr:10.47.255.249
+            Vrf:2 Mcast Vrf:2 Flags:PL3DEr QOS:-1 Ref:6
+            RX packets:1094  bytes:46172 errors:0
+            TX packets:1733  bytes:72786 errors:0
+            Drops:1097
+
+vif0/10     OS: tapeth1-129a93 NH: 63
+            Type:Virtual HWaddr:00:00:5e:00:01:00 IPaddr:1.0.0.251
+            Vrf:4 Mcast Vrf:4 Flags:PL3L2DEr QOS:-1 Ref:6
+            RX packets:652  bytes:27384 errors:0
+            TX packets:1449  bytes:60858 errors:0
+            Drops:654
+
+#Right
+vif0/7      OS: tapeth0-c08755 NH: 67
+            Type:Virtual HWaddr:00:00:5e:00:01:00 IPaddr:10.47.255.248
+            Vrf:2 Mcast Vrf:2 Flags:PL3DEr QOS:-1 Ref:6
+            RX packets:1091  bytes:45934 errors:0
+            TX packets:1733  bytes:72786 errors:0
+            Drops:1092
+
+vif0/11     OS: tapeth2-129a93 NH: 62
+            Type:Virtual HWaddr:00:00:5e:00:01:00 IPaddr:2.0.0.251
+            Vrf:5 Mcast Vrf:5 Flags:PL3L2DEr QOS:-1 Ref:6
+            RX packets:659  bytes:27958 errors:0
+            TX packets:1456  bytes:61432 errors:0
+
+#CSRX
+vif0/9      OS: tapeth0-129a93 NH: 78
+            Type:Virtual HWaddr:00:00:5e:00:01:00 IPaddr:10.47.255.247
+            Vrf:2 Mcast Vrf:2 Flags:PL3DEr QOS:-1 Ref:6
+            RX packets:1376  bytes:70120 errors:0
+            TX packets:1503  bytes:63126 errors:0
+            Drops:1254
+
+vif0/10     OS: tapeth1-129a93 NH: 63
+            Type:Virtual HWaddr:00:00:5e:00:01:00 IPaddr:1.0.0.251
+            Vrf:4 Mcast Vrf:4 Flags:PL3L2DEr QOS:-1 Ref:6
+            RX packets:652  bytes:27384 errors:0
+            TX packets:1449  bytes:60858 errors:0
+            Drops:654
+
+vif0/11     OS: tapeth2-129a93 NH: 62
+            Type:Virtual HWaddr:00:00:5e:00:01:00 IPaddr:2.0.0.251
+            Vrf:5 Mcast Vrf:5 Flags:PL3L2DEr QOS:-1 Ref:6
+            RX packets:659  bytes:27958 errors:0
+            TX packets:1456  bytes:61432 errors:0
+
 ```
