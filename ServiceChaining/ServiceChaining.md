@@ -115,12 +115,12 @@ vif0/5      OS: tapeth0-bc1c69 NH: 52
             TX packets:1733  bytes:72786 errors:0
             Drops:1097
 
-vif0/10     OS: tapeth1-129a93 NH: 63
-            Type:Virtual HWaddr:00:00:5e:00:01:00 IPaddr:1.0.0.251
+vif0/6      OS: tapeth1-bc1c69 NH: 41
+            Type:Virtual HWaddr:00:00:5e:00:01:00 IPaddr:1.0.0.252
             Vrf:4 Mcast Vrf:4 Flags:PL3L2DEr QOS:-1 Ref:6
-            RX packets:652  bytes:27384 errors:0
-            TX packets:1449  bytes:60858 errors:0
-            Drops:654
+            RX packets:3112  bytes:130704 errors:0
+            TX packets:4803  bytes:201726 errors:0
+            Drops:3112
 
 #Right
 vif0/7      OS: tapeth0-c08755 NH: 67
@@ -130,11 +130,12 @@ vif0/7      OS: tapeth0-c08755 NH: 67
             TX packets:1733  bytes:72786 errors:0
             Drops:1092
 
-vif0/11     OS: tapeth2-129a93 NH: 62
-            Type:Virtual HWaddr:00:00:5e:00:01:00 IPaddr:2.0.0.251
+vif0/8      OS: tapeth1-c08755 NH: 57
+            Type:Virtual HWaddr:00:00:5e:00:01:00 IPaddr:2.0.0.252
             Vrf:5 Mcast Vrf:5 Flags:PL3L2DEr QOS:-1 Ref:6
-            RX packets:659  bytes:27958 errors:0
-            TX packets:1456  bytes:61432 errors:0
+            RX packets:3129  bytes:132370 errors:0
+            TX packets:4816  bytes:202552 errors:0
+            Drops:3136
 
 #CSRX
 vif0/9      OS: tapeth0-129a93 NH: 78
@@ -158,3 +159,35 @@ vif0/11     OS: tapeth2-129a93 NH: 62
             TX packets:1456  bytes:61432 errors:0
 
 ```
+```sh
+docker exec -it vrouter_vrouter-agent_1 bash
+rt --dump 4 | grep 2.0.0
+rt --dump 5 | grep 1.0.0
+```
+
+#### From contrail-command UI
+* Create a Service template from Services->Catalog->Create
+  * Give any name
+  * Select v2 version
+  * Virtual Machine for Service modes
+  * In-network and Firewall
+  * Select Management, Left and Right and Create
+* Create a service instance based on the service template just completed from Services->Deployments
+  * Give any name
+  * Select from the drop-down menu the name of the template you created
+  * Choose the proper CSRX interfaces
+  * Add port tuples and give the proper vmi details
+* Create a network policy and select the service instance you created before in Overlay->Network Policies
+  * Click on Create
+  * Name your Network policy(E.g: left-right networks)
+  * Action pass
+  * left-network as Source network
+  * right-network as Destination network
+  * Select Advance Options and attach the service instance 
+  * Click on Create
+* Apply this network policy onto the network from Overlay->Virtual Network
+  * Select the left network and edit
+  * In Network Policies select the network policy you just created from the drop-down menu list, and then click Save
+  * Do the same for right network
+* Verify ping again and this time it works
+
