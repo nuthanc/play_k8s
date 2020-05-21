@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ctest-busybox-pod-58920640
+  namespace: ctest-namespace-41847719
+spec:
+  containers:
+    - command:
+        - sleep
+        - '1000000'
+      image: busybox
+      name: ctest-busybox-pod-58920640-0

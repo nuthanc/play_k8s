@@ -1,0 +1,12 @@
+2020-05-21 08:19:59,892 - INFO - Created namespace ctest-namespace-41847719
+fip_pool: 10.204.219.200/29
+(Pdb) external_ips
+[u'10.204.219.204']
+[root@testbed-1-vm1 ~]# kubectl get pods -n ctest-namespace-41847719 -o wide
+NAME                         READY   STATUS    RESTARTS   AGE    IP              NODE            NOMINATED NODE   READINESS GATES
+ctest-busybox-pod-58920640   1/1     Running   0          96s    10.47.255.240   testbed-1-vm2   <none>           <none>
+ctest-nginx-pod-52710576     1/1     Running   0          114s   10.47.255.242   testbed-1-vm2   <none>           <none>
+ctest-nginx-pod-78423746     1/1     Running   0          104s   10.47.255.241   testbed-1-vm3   <none>           <none>
+
+kubectl get svc -n ctest-namespace-41847719
+`kubectl get ns | grep ctest`
