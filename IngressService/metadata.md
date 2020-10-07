@@ -4,6 +4,9 @@ Description:
 3. From another pod, do a wget on the Ingress Cluster IP
 4. Also validate Ingress get a IP from Public FIP pool and service and its loadbalancing work
 
+### Note
+* Ping from busybox pod to Ingress internal ip is possible but not to external ip
+* External ip can be accessed directly from the outside world
 
 vim scripts/k8s_scripts/test_ingress.py
 python -m testtools.run scripts.k8s_scripts.test_ingress.TestIngressClusterIp.test_ingress_ip_assignment
