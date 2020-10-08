@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  creationTimestamp: "2020-10-08T14:23:23Z"
+  generation: 1
+  name: ctest-nginx-ingress-41816429
+  namespace: ctest-namespace-83498193
+  resourceVersion: "39923"
+  selfLink: /apis/extensions/v1beta1/namespaces/ctest-namespace-83498193/ingresses/ctest-nginx-ingress-41816429
+  uid: d2c5d955-0971-11eb-a37a-525400010001
+spec:
+  backend:
+    serviceName: ctest-nginx-svc-68086265
+    servicePort: 80
+  tls:
+  - secretName: ctest-secret-15874662
+status:
+  loadBalancer:
+    ingress:
+    - ip: 10.204.219.204
+    - ip: 10.47.255.243
