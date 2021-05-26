@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubu1-deployment
+  namespace: ns1
+spec:
+  selector:
+    matchLabels:
+      app: ubu1-deployment
+  template:
+    metadata:
+      labels:
+        app: ubu1-deployment
+    spec:
+      containers:
+      - name: ubuntu-pod
+        image: ubuntu
+  replicas: 4
