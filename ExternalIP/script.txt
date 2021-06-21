@@ -25,3 +25,6 @@ traceroute to 10.204.220.196 (10.204.220.196), 64 hops max, 52 byte packets
 17  * * *
 
 MX(blr-mx2) is the last step in traceroute
+
+scripts/k8s_scripts/test_ingress.py
+python3 -m testtools.run scripts.k8s_scripts.test_ingress.TestIngressClusterIp.test_ingress_ip_assignment
