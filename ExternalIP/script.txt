@@ -1,0 +1,27 @@
+scripts/k8s_scripts/test_service.py
+python3 -m testtools.run scripts.k8s_scripts.test_service.TestServiceExternalIP.test_service_with_external_ip
+
+nodea4's __public__ network had only External and Reverse Path Forwarding ticked and not shared
+Forwarding mode: Default
+
+traceroute 10.204.220.196(Floating IP of physical setup)
+traceroute to 10.204.220.196 (10.204.220.196), 64 hops max, 52 byte packets
+ 1  cns-vpn-gw (10.200.200.200)  19.746 ms  18.885 ms  19.988 ms
+ 2  jpbng-app-fw1-reth2-194 (172.29.144.65)  20.566 ms  20.420 ms *
+ 3  172.29.136.51 (172.29.136.51)  21.372 ms  21.417 ms  22.998 ms
+ 4  172.29.136.9 (172.29.136.9)  21.602 ms  21.271 ms  20.804 ms
+ 5  172.29.144.134 (172.29.144.134)  23.380 ms  27.495 ms  22.606 ms
+ 6  10.223.35.197 (10.223.35.197)  22.736 ms  23.738 ms  23.301 ms
+ 7  10.223.35.196 (10.223.35.196)  22.814 ms  31.017 ms  22.993 ms
+ 8  10.223.35.144 (10.223.35.144)  22.437 ms  22.480 ms  22.051 ms
+ 9  bngb-campus-core-et-0-0-8-0 (10.223.35.168)  22.563 ms  23.142 ms  23.086 ms
+10  bng-dc-core1-et-0-0-69-0 (10.222.254.82)  22.901 ms  22.390 ms  22.781 ms
+11  bngb-englab-fw1-ha1-reth0-110 (10.223.255.2)  23.044 ms  21.833 ms  22.239 ms
+12  10.223.255.9 (10.223.255.9)  23.231 ms  24.011 ms  23.252 ms
+13  10.206.156.130 (10.206.156.130)  35.008 ms  40.520 ms  43.021 ms
+14  10.204.218.5 (10.204.218.5)  24.593 ms  23.112 ms  23.525 ms
+15  1.1.1.30 (1.1.1.30)  23.197 ms  22.760 ms  22.772 ms
+16  * * *
+17  * * *
+
+MX(blr-mx2) is the last step in traceroute
