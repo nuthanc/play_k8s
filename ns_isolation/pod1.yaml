@@ -5,7 +5,7 @@ metadata:
     k8s.v1.cni.cncf.io/networks: '[
       {"name": "nad-1"},
       {"name": "nad-2"}
-      ]'
+    ]'
   name: cpod1
   namespace: ns2
 spec:
