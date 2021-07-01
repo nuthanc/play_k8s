@@ -2,10 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   annotations:
-    k8s.v1.cni.cncf.io/networks: '[
-      { "name": "nad-1" },
-      { "name": "nad-2" }
-    ]'
+    k8s.v1.cni.cncf.io/networks: '[{"name": "nad-1"}, {"name": "nad-2"}]'
   name: cpod3
   namespace: default
 spec:
