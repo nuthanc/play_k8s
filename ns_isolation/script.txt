@@ -1,0 +1,12 @@
+serial_scripts/k8s_scripts/test_network_attachment.py
+
+python3 -m testtools.run serial_scripts.k8s_scripts.test_network_attachment.TestNetworkAttachment.test_basic_pod_with_multi_intf_isolated_namespace
+
+kubectl get network-attachment-definitions
+
+[root@nodea4 play_k8s]# kubectl get network-attachment-definitions
+NAME                 AGE
+ctest-nad-21612355   8m27s
+ctest-nad-81021227   8m27s
+
+    k8s.v1.cni.cncf.io/networks: '[{"name": "ctest-nad-97817624"}, {"name": "ctest-nad-87105235"}]'

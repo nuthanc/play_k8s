@@ -17,3 +17,4 @@ kubectl exec -it cirros-754d7d66b6-km4qw ping 10.47.255.250 -n nuthan
 Ping succeeds, where cirros-754d7d66b6-km4qw is a pod in nuthan namespace
 
 
+https://github.com/pinggit/kubernetes-contrail-day-one/blob/master/kubernetes-contrail.adoc#310-contrail-network-policy-ch3

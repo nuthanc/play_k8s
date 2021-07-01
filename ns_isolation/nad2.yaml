@@ -1,0 +1,9 @@
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  annotations:
+    opencontrail.org/cidr: 158.240.33.0/26
+  name: nad-2
+  namespace: default
+spec:
+  config: '{ "cniVersion": "0.3.0", "type": "contrail-k8s-cni" }'
