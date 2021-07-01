@@ -2,11 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ctest-nginx-svc-56797998
-  namespace: ctest-namespace-41847719
+  namespace: ns1
 spec:
-  clusterIP: 10.108.118.92
+  clusterIP: 10.97.235.203
   externalIPs:
-  - 10.204.219.204
+  - 10.204.220.196
   ports:
   - port: 80
     protocol: TCP
