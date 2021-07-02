@@ -6,3 +6,4 @@
 * NAD
 * NodeportService
 * IngressService
+* ns_isolation
